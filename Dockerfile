@@ -1,4 +1,5 @@
-FROM registry.access.redhat.com/ubi8/ubi:latest
+#FROM registry.access.redhat.com/ubi8/ubi:latest
+FROM registry.access.redhat.com/ubi7/ubi:latest
 
 # Install of NGINX
 RUN yum update --disableplugin=subscription-manager -y \
