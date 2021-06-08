@@ -4,8 +4,8 @@ FROM registry.access.redhat.com/ubi7/ubi:latest
 # Install of NGINX
 RUN yum update --disableplugin=subscription-manager -y \
  && rm -fr /var/cache/yum
-RUN yum install --disableplugin=subscription-manager nginx -y \
+RUN yum install --disableplugin=subscription-manager httpd -y \
  && rm -fr /var/cache/yum
 CMD ["-g","daemon off;"]
-ENTRYPOINT ["nginx"]
+ENTRYPOINT ["httpd"]
 
