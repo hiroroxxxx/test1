@@ -2,10 +2,10 @@ FROM registry.access.redhat.com/ubi8/ubi-init
 
 RUN yum -y install cronie; systemctl enable crond;
 RUN echo '* * * * * /usr/bin/date >> /tmp/hoge' >> /var/spool/cron/root
-RUN mkdir -p -m 777 /var/log/temp \
-    && touch /var/log/temp/1.log \
-    && chmod +w /var/log/temp/1.log \
-    && ln -sf /dev/stdout /var/log/temp/1.log 
+#RUN mkdir -p -m 777 /var/log/temp \
+#    && touch /var/log/temp/1.log \
+#    && chmod +w /var/log/temp/1.log \
+#    && ln -sf /dev/stdout /var/log/temp/1.log 
 CMD [ "/sbin/init" ]
 
 #FROM registry.access.redhat.com/ubi8/ubi:latest
