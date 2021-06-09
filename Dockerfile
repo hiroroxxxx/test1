@@ -1,4 +1,4 @@
-registry.access.redhat.com/ubi8/ubi-init
+FROM registry.access.redhat.com/ubi8/ubi-init
 
 RUN yum -y install cronie; systemctl enable crond;
 RUN echo '* * * * * /usr/bin/date >> /tmp/hoge' >> /var/spool/cron/root
