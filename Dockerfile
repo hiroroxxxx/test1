@@ -1,9 +1,14 @@
-FROM registry.access.redhat.com/ubi8/ubi-init
-RUN yum -y install httpd; yum clean all; systemctl enable httpd;
-RUN echo "Successful Web Server Test" > /var/www/html/index.html
-RUN mkdir /etc/systemd/system/httpd.service.d/; echo -e '[Service]\nRestart=always' > /etc/systemd/system/httpd.service.d/httpd.conf
-EXPOSE 80
-CMD [ "/sbin/init" ]
+FROM centos
+RUN echo "#!/bin/bash" >> /etc/profile.d/logging.sh
+RUN echo "script -a /proc/1/fd/1" >> /etc/profile.d/logging.sh
+RUN chmod +x /etc/profile.d/logging.sh
+
+#FROM registry.access.redhat.com/ubi8/ubi-init
+#RUN yum -y install httpd; yum clean all; systemctl enable httpd;
+#RUN echo "Successful Web Server Test" > /var/www/html/index.html
+#RUN mkdir /etc/systemd/system/httpd.service.d/; echo -e '[Service]\nRestart=always' > /etc/systemd/system/httpd.service.d/httpd.conf
+#EXPOSE 80
+#CMD [ "/sbin/init" ]
 
 #FROM registry.access.redhat.com/ubi8/ubi:latest
 #FROM registry.access.redhat.com/ubi7/ubi:latest
