@@ -1,7 +1,13 @@
-FROM centos
-RUN echo "#!/bin/bash" >> /etc/profile.d/logging.sh
-RUN echo "script -a /proc/1/fd/1" >> /etc/profile.d/logging.sh
-RUN chmod +x /etc/profile.d/logging.sh
+FROM bastion01-test.ocplab.com:5000/openshift/websphere-liberty:19.0.0.9-webProfile8
+#FROM bastion01-test.ocplab.com:5000/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi-1
+#USER root
+#RUN apt-get -y update && apt-get install -y nmap
+COPY ./sample.war /config/dropins/
+
+#FROM centos
+#RUN echo "#!/bin/bash" >> /etc/profile.d/logging.sh
+#RUN echo "script -a /proc/1/fd/1" >> /etc/profile.d/logging.sh
+#RUN chmod +x /etc/profile.d/logging.sh
 
 #FROM registry.access.redhat.com/ubi8/ubi-init
 #RUN yum -y install httpd; yum clean all; systemctl enable httpd;
