@@ -1,6 +1,6 @@
 FROM bastion01-test.ocplab.com:5000/openshift/websphere-liberty:19.0.0.9-webProfile8
 #FROM bastion01-test.ocplab.com:5000/ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi-1
-#USER root
+USER root
 #RUN apt-get -y update && apt-get install -y nmap
 COPY ./sample.war /config/dropins/
 
